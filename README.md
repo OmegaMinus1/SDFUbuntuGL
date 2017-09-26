@@ -6,6 +6,8 @@ Linux Sample app of Sign Distance Field Rendering(SDF) in OpenGL
 
 Type: CodeBlocks 16 C++ Project
 
+SDL2 Based should compile on any OS: Win, Mac, Linux
+
 Needed to compile:
 gcc
 SDL2
