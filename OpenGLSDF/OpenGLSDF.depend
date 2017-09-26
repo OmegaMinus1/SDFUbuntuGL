@@ -1,0 +1,91 @@
+# depslib dependency file v1.0
+1505782973 source:/home/om1/Desktop/OpenGL/OpenGLSDF/main.cpp
+	"display.h"
+	"mesh.h"
+	"shader.h"
+	"src/stb_image.h"
+
+1505803271 source:/home/om1/Desktop/OpenGL/OpenGLSDF/src/display.cpp
+	"display.h"
+
+1506071982 /home/om1/Desktop/OpenGL/OpenGLSDF/include/display.h
+	<iostream>
+	<SDL2/SDL.h>
+	<GL/glew.h>
+	<string>
+
+1505725597 source:/home/om1/Desktop/OpenGL/OpenGLSDF/mesh.cpp
+	"mesh.h"
+
+1505724768 /home/om1/Desktop/OpenGL/OpenGLSDF/mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+
+1505773808 source:/home/om1/Desktop/OpenGL/OpenGLSDF/shader.cpp
+	"shader.h"
+
+1505769694 /home/om1/Desktop/OpenGL/OpenGLSDF/shader.h
+	<iostream>
+	<fstream>
+	<string>
+	<GL/glew.h>
+
+1505782837 /home/om1/Desktop/OpenGL/OpenGLSDF/src/stb_image.h
+	<stdio.h>
+
+1505782820 source:/home/om1/Desktop/OpenGL/OpenGLSDF/src/stb_image.c
+	"stb_image.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+
+1505782837 /home/om1/Desktop/OpenGL/OpenGLSDF/include/stb_image.h
+	<stdio.h>
+
+1506072409 source:/home/om1/Desktop/OpenGL/OpenGLSDF/src/main.cpp
+	"display.h"
+	"mesh.h"
+	"shader.h"
+	"texture.h"
+	"timer.h"
+	"opencl.h"
+
+1505787718 /home/om1/Desktop/OpenGL/OpenGLSDF/include/mesh.h
+	<glm/glm.hpp>
+	<GL/glew.h>
+
+1505799998 /home/om1/Desktop/OpenGL/OpenGLSDF/include/shader.h
+	<iostream>
+	<fstream>
+	<string>
+	<GL/glew.h>
+
+1505788653 source:/home/om1/Desktop/OpenGL/OpenGLSDF/src/mesh.cpp
+	"mesh.h"
+	<vector>
+
+1505799977 source:/home/om1/Desktop/OpenGL/OpenGLSDF/src/shader.cpp
+	"shader.h"
+
+1505788168 source:/home/om1/Desktop/OpenGL/OpenGLSDF/src/texture.cpp
+	"texture.h"
+	"stb_image.h"
+	<cassert>
+	<iostream>
+
+1505784776 /home/om1/Desktop/OpenGL/OpenGLSDF/include/texture.h
+	<string>
+	<GL/glew.h>
+
+1505797780 /home/om1/Desktop/OpenGL/OpenGLSDF/include/timer.h
+	<SDL2/SDL.h>
+
+1505797793 source:/home/om1/Desktop/OpenGL/OpenGLSDF/src/timer.cpp
+	"timer.h"
+
+1506072513 /home/om1/Desktop/OpenGL/OpenGLSDF/include/opencl.h
+

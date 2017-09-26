@@ -1,0 +1,11 @@
+#include "opencl.h"
+
+OpenCL::OpenCL()
+{
+    
+}
+
+OpenCL::~OpenCL()
+{
+    
+}

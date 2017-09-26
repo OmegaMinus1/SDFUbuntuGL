@@ -1,0 +1,95 @@
+#include "display.h"
+#include "mesh.h"
+#include "shader.h"
+#include "texture.h"
+#include "timer.h"
+
+#include "opencl.h"
+
+//FullScreen Triangle
+Vertex vertices[] = {   Vertex(glm::vec3(-1.0,  3.0, 0), glm::vec2(-1.0,  3.0)),
+                        Vertex(glm::vec3( 3.0, -1.0, 0), glm::vec2( 3.0, -1.0)),
+                        Vertex(glm::vec3(-1.0, -1.0, 0), glm::vec2(-1.0, -1.0)), };
+
+int main()
+{
+    //Start SDL2 and Create OpenGL Window
+    Display display(1024, 768, "Om1 OpenGL 4.5 Shader SDF");
+
+    //Start Up OpenCL
+    OpenCL(display.GetContextGL(), display.GetWindow());
+
+    //Load the FullScreen Triangle
+    Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
+
+    //Load the shaders vert, frag
+    Shader shader("./res/Shaders/basicShader");
+    shader.Bind();
+    shader.UpdateResolution(display.Width, display.Height);
+
+    //Load a texture
+    Texture texture("./res/Images/bricks.jpg");
+    texture.Bind(0);
+
+    //Get Start Clock
+    Timer timer;
+    timer.StartTime();
+    int lastFps = 0;
+    int avgFps = 0;
+    int frameCount = 0;
+
+    //Lets Rocket
+    display.SetFullScreen();
+
+    //Update the Uniform Buffer
+    shader.UpdateResolution(display.Width, display.Height);
+
+    //Clear Color
+    display.ClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+
+    //Main Loop
+    while(display.IsRunning())
+    {
+        //Clear Display
+        display.Clear();
+
+        //Get EndClock
+        timer.EndTime();
+
+        //Must be called after EndTime
+        shader.UpdateTime(timer.TotalSeconds());
+
+        lastFps = (int)timer.Fps();
+        if(lastFps < 1001)
+        {
+            avgFps += lastFps;
+            frameCount++;
+        }
+
+        if(display.m_useOpenClRendering)
+        {
+            //Render SDF Kernel into the GL-CL Shared Surface
+            mesh.DrawCL();
+            
+            //Draw the FS Triangle using the GL-CL Shared Surface
+            mesh.DrawGL();
+        }
+        else
+        {
+            //Draw the FS Triangle using the GLSL 4.5 SDF Shader
+            mesh.Draw();
+        }
+        
+        //Swap Double Buffer & Process SDL Events
+        display.Update();
+
+    }
+
+    //Report the FPS
+    std::cerr << "Last FPS: " << lastFps << std::endl;
+    std::cerr << "Avg. FPS: " << (avgFps / frameCount) << std::endl;
+
+
+    //Done no error
+    return 0;
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="OpenGLSDF" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/OpenGLSDF" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="/usr/include/GL" />
+					<Add directory="include" />
+					<Add directory="src" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/OpenGLSDF" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+					<Add directory="src" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="/usr/include/SDL2" />
+		</Compiler>
+		<Linker>
+			<Add library="GL" />
+			<Add library="GLEW" />
+			<Add library="SDL2" />
+		</Linker>
+		<Unit filename="include/display.h" />
+		<Unit filename="include/mesh.h" />
+		<Unit filename="include/opencl.h" />
+		<Unit filename="include/shader.h" />
+		<Unit filename="include/stb_image.h" />
+		<Unit filename="include/texture.h" />
+		<Unit filename="include/timer.h" />
+		<Unit filename="src/display.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Unit filename="src/mesh.cpp" />
+		<Unit filename="src/opencl.cpp" />
+		<Unit filename="src/shader.cpp" />
+		<Unit filename="src/stb_image.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/texture.cpp" />
+		<Unit filename="src/timer.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
